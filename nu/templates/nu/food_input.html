@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Calorie Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nu/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Food Item and Quantity</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="food_name">Food Name:</label>
+            <input type="text" name="food_name" required>
+            <br><br>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" required>
+            <br><br>
+            <label for="quantity_type">Select Quantity Type:</label>
+            <select name="quantity_type" required>
+                <option value="grams">Grams</option>
+                <option value="count">Count (e.g., eggs)</option>
+            </select>
+            <br><br>
+            <button type="submit">Get Nutrition Info</button>
+        </form>
+    </div>
+</body>
+</html>

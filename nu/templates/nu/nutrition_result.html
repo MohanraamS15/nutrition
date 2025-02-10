@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Result</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nu/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Nutrition Information</h1>
+        <p>Food: {{ food_name }} ({{ quantity }} {{ quantity_type }})</p>
+        <table>
+            <tr>
+                <th>Nutrient</th>
+                <th>Amount (per {{ quantity }} {{ quantity_type }})</th>
+            </tr>
+            {% for nutrient, value in nutrition.items %}
+                <tr>
+                    <td>{{ nutrient }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>
